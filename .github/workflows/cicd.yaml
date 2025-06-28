@@ -49,9 +49,10 @@ jobs:
       - name: Update deployment.yaml
         run: |
           sed -i "s|image:.*$|image: ${{ secrets.DOCKER_USERNAME }}/msa-fe:${{ github.sha }}|" msa-config/k8s/deployment.yaml
+          cd msa-config
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
-          git add msa-config/k8s/deployment.yaml
+          git add k8s/deployment.yaml
           git commit -m "Update image tag to ${{ github.sha }}"
           git push
         env:
