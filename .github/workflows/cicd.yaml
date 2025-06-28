@@ -48,8 +48,9 @@ jobs:
 
             - name: Update deployment.yaml
               run: |
-                  git config user.name "GitHub Action"
-                  git config user.email "action@github.com"
+                  if [ "${{ job.status }}" != "success" ]; then exit 1; fi
+                  git config --global user.name "GitHub Action"
+                  git config --global user.email "action@github.com"
                   git clone https://x-access-token:${{ secrets.MY_TOKEN }}@github.com/nghia2742/msa-config.git
                   cd msa-config
                   sed -i "s|image:.*$|image: ${{ secrets.DOCKER_USERNAME }}/msa-fe:${{ github.sha }}|" k8s/deployment.yaml
