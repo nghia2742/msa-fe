@@ -30,4 +30,4 @@ COPY --from=builder /app/node_modules ./node_modules
 EXPOSE 3000
 
 # Start the application
-CMD ["yarn", "start:prod"]
+CMD ["yarn", "start"]
