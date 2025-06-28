@@ -1,0 +1,8 @@
+schema: "http://localhost:4000/bff" # Point to your BFF
+documents: "src/shared/constants/gql.ts"                # All .tsx files where you write queries
+generates:
+  src/shared/core/generated/graphql.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
