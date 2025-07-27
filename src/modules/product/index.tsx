@@ -59,7 +59,7 @@ function ProductModule() {
                                 type="button"
                                 className="mb-4 justify-center items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white rounded-lg focus:ring-4 hover:bg-primary-800 bg-green-600 hover:bg-green-700 focus:ring-green-800 cursor-pointer"
                             >
-                                Add
+                                Add Product
                             </button>
                         </div>
                         <div className="relative overflow-x-auto">
