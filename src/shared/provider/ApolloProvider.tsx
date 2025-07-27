@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 function createApolloClient() {
     return new ApolloClient({
         link: new HttpLink({
-            uri: process.env.NEXT_PUBLIC_BFF_ENDPOINT,
+            uri: process.env.NEXT_PUBLIC_BFF_ENDPOINT ?? 'http://localhost:4000/graphql',
         }),
         cache: new InMemoryCache(),
     });
