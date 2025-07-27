@@ -53,7 +53,7 @@ jobs:
                   git config --global user.email "action@github.com"
                   git clone https://x-access-token:${{ secrets.MY_TOKEN }}@github.com/nghia2742/msa-config.git
                   cd msa-config
-                  sed -i "s|image:.*$|image: ${{ secrets.DOCKER_USERNAME }}/msa-fe:${{ github.sha }}|" k8s/deployment.yaml
-                  git add k8s/deployment.yaml
-                  git commit -m "Update image tag to ${{ github.sha }}"
+                  sed -i "s|image:.*$|image: ${{ secrets.DOCKER_USERNAME }}/msa-fe:${{ github.sha }}|" k8s/msa-fe/deployment.yaml
+                  git add k8s/msa-fe/deployment.yaml
+                  git commit -m "FE: Update image tag to ${{ github.sha }}"
                   git push origin main
