@@ -1,6 +1,7 @@
 import {
     useCreateProductMutation,
     useProductsQuery,
+    ProductSchema
 } from '@/shared/core/generated/graphql';
 import { useState, useMemo } from 'react';
 import { 
@@ -54,7 +55,7 @@ const SkeletonCard = () => (
     </div>
 );
 
-const ProductCard = ({ product }: { product: any }) => {
+const ProductCard = ({ product }: { product: ProductSchema }) => {
     return (
         <motion.div
             layout
@@ -239,7 +240,7 @@ function ProductModule() {
         if (!data?.products) return [];
         return data.products.filter(p => 
             p.productName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            p.description.toLowerCase().includes(searchQuery.toLowerCase())
+            (p.description?.toLowerCase().includes(searchQuery.toLowerCase()) ?? false)
         );
     }, [data, searchQuery]);
 
