@@ -67,4 +67,4 @@ jobs:
                   kustomize edit set image nghia2742/msa-fe=nghia2742/msa-fe:${{ github.sha }}
                   git add .
                   git commit -m "FE: Update ${{ env.ENV }} image tag to ${{ github.sha }}"
-                  git push https://x-access-token:${{ secrets.MY_TOKEN }}@github.com/nghia2742/msa-config.git main
+                  git push origin main
