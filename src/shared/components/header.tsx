@@ -2,12 +2,12 @@ import React from 'react';
 
 const Header: React.FC = () => {
     const environment = process.env.NEXT_PUBLIC_ENVIRONMENT || process.env.NODE_ENV || 'development';
-    
+
     const getEnvStyles = (env: string) => {
         switch (env.toLowerCase()) {
             case 'production':
                 return 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20';
-            case 'staging':
+            case 'stage':
                 return 'bg-amber-500/10 text-amber-500 border-amber-500/20';
             default:
                 return 'bg-slate-500/10 text-slate-500 border-slate-500/20';
